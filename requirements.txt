@@ -1,0 +1,12 @@
+
+numpy
+pydantic
+loguru
+
+pytest
+pytest-cov
+pytest-asyncio
+pytest-env
+pytest-ordering
+mypy
+pycodestyle

@@ -1,0 +1,48 @@
+name: Python CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: [ '3.9' ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Restore cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+      - name: Restore modules
+        run: |
+          pip install -r requirements.txt
+      - name: Check code style
+        run: |
+          pycodestyle --statistics --exclude=.github,.vscode,.git,docs,.devcontainer, . --ignore="E501"
+      - name: Check type hinting
+        run: |
+          mypy --strict code/
+      - name: Test python
+        run: |
+          coverage run --source=src -m pytest tests/
+        env:
+          ENV: github
+      - name: Report coverage
+        if: ${{ success() }}
+        run: |
+          coverage report -m
