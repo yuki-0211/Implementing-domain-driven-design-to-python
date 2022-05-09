@@ -33,10 +33,10 @@ jobs:
           pip install -r requirements.txt
       - name: Check code style
         run: |
-          pycodestyle --statistics --exclude=.github,.vscode,.git,docs,.devcontainer, . --ignore="E501"
+          pycodestyle --statistics --exclude=.github,.vscode,.git,docs,.devcontainer, implementing tests --ignore="E501"
       - name: Check type hinting
         run: |
-          mypy --strict code/
+          mypy --strict implementing/ tests/
       - name: Test python
         run: |
           coverage run --source=src -m pytest tests/
