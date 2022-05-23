@@ -109,40 +109,40 @@ class Customer(BaseModel):
         """
         self.to_dto(customer=customer)
 
-    def setCustomerFirstName(self, customerFirstName: str):
+    def setCustomerFirstName(self, customerFirstName: str) -> None:
         self.customerFirstName = customerFirstName
 
-    def setCustomerLastName(self, customerLastName: str):
+    def setCustomerLastName(self, customerLastName: str) -> None:
         self.customerLastName = customerLastName
 
-    def setStreetAddress1(self, streetAddress1: str):
+    def setStreetAddress1(self, streetAddress1: str) -> None:
         self.streetAddress1 = streetAddress1
 
-    def setStreetAddress2(self, streetAddress2: str):
+    def setStreetAddress2(self, streetAddress2: str) -> None:
         self.streetAddress2 = streetAddress2
 
-    def setCity(self, city: str):
+    def setCity(self, city: str) -> None:
         self.city = city
 
-    def setStateOrProvince(self, stateOrProvince: str):
+    def setStateOrProvince(self, stateOrProvince: str) -> None:
         self.stateOrProvince = stateOrProvince
 
-    def setPostalCode(self, postalCode: str):
+    def setPostalCode(self, postalCode: str) -> None:
         self.postalCode = postalCode
 
-    def setCountry(self, country: str):
+    def setCountry(self, country: str) -> None:
         self.country = country
 
-    def setHomePhone(self, homePhone: str):
+    def setHomePhone(self, homePhone: str) -> None:
         self.homePhone = homePhone
 
-    def setMobilePhone(self, mobilePhone: str):
+    def setMobilePhone(self, mobilePhone: str) -> None:
         self.mobilePhone = mobilePhone
 
-    def setPrimaryEmailAddress(self, primaryEmailAddress: str):
+    def setPrimaryEmailAddress(self, primaryEmailAddress: str) -> None:
         self.primaryEmailAddress = primaryEmailAddress
 
-    def setSecondaryEmailAddress(self, secondaryEmailAddress: str):
+    def setSecondaryEmailAddress(self, secondaryEmailAddress: str) -> None:
         self.secondaryEmailAddress = secondaryEmailAddress
 
 
