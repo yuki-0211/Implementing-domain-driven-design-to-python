@@ -1,6 +1,7 @@
 
 numpy
 pydantic
+abc
 loguru
 
 pytest
