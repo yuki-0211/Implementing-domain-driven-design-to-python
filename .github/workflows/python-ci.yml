@@ -39,10 +39,6 @@ jobs:
           mypy --strict implementing/ tests/
       - name: Test python
         run: |
-          coverage run --source=src -m pytest tests/
+          pytest tests/
         env:
           ENV: github
-      - name: Report coverage
-        if: ${{ success() }}
-        run: |
-          coverage report -m
